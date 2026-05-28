@@ -9,7 +9,6 @@
   :root {
     --navy: #1e2a3a;
     --navy-dark: #141d28;
-    --navy-med: #2a3a50;
     --creme: #f0ebe0;
     --ouro: #c9a84c;
     --cinza: #6b7280;
@@ -35,7 +34,6 @@
   .logo-nome { font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:600; color:rgba(240,235,224,.8); letter-spacing:3px; text-transform:uppercase; display:block; }
   .logo-sub  { font-size:10px; color:rgba(240,235,224,.45); letter-spacing:4px; text-transform:uppercase; display:block; margin-top:3px; }
   .hero-linha { width:48px; height:1px; background:rgba(201,168,76,.4); margin:20px auto; }
-
   .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,7vw,50px); color:var(--creme); line-height:1.15; margin-bottom:20px; font-weight:600; letter-spacing:-.5px; }
   .hero h1 em { font-style:italic; color:var(--ouro); }
   .hero p { font-size:15px; color:rgba(240,235,224,.7); max-width:460px; margin:0 auto 32px; line-height:1.8; }
@@ -59,22 +57,40 @@
   .step-num { width:28px; height:28px; background:var(--navy); color:var(--creme); border-radius:2px; font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .step-txt { font-size:13px; color:#374151; font-weight:500; }
 
-  .card { background:#fff; border:1px solid #e5e0d8; border-radius:4px; padding:32px 24px; box-shadow:0 4px 32px rgba(30,42,58,.07); text-align:center; }
-  .card-icon { font-size:48px; margin-bottom:16px; }
-  .card-titulo { font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--navy); font-weight:600; margin-bottom:8px; }
-  .card-sub { font-size:13px; color:var(--cinza); margin-bottom:28px; line-height:1.6; }
+  .card { background:#fff; border:1px solid #e5e0d8; border-radius:4px; padding:28px 24px; box-shadow:0 4px 32px rgba(30,42,58,.07); }
 
-  .btn-cta {
-    display:block; width:100%; padding:18px;
-    background:var(--navy); color:var(--creme);
-    border:none; border-radius:4px;
-    font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600;
-    cursor:pointer; transition:.2s; letter-spacing:.5px; text-transform:uppercase;
-    text-decoration:none;
-  }
-  .btn-cta:hover { background:var(--navy-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(30,42,58,.25); }
+  .drop { border:2px dashed #c8c0b0; border-radius:4px; padding:36px 20px; text-align:center; cursor:pointer; transition:.2s; margin-bottom:16px; background:#faf8f4; }
+  .drop:hover, .drop.dragover { border-color:var(--navy); background:var(--creme); }
+  .drop-icon { font-size:36px; margin-bottom:10px; }
+  .drop-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+  .drop-hint { font-size:12px; color:#9ca3af; line-height:1.6; }
 
-  .legal { margin-top:14px; font-size:11px; color:#9ca3af; line-height:1.5; }
+  input[type=file] { display:none; }
+
+  .arquivos-lista { display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+  .arquivo-item { display:flex; align-items:center; gap:10px; background:var(--creme); border:1px solid #d0c8b8; border-radius:4px; padding:10px 12px; }
+  .arquivo-icon { font-size:20px; flex-shrink:0; }
+  .arquivo-nome { font-size:13px; font-weight:500; color:var(--navy); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .arquivo-size { font-size:11px; color:var(--cinza); flex-shrink:0; }
+  .arquivo-remove { background:none; border:none; cursor:pointer; color:#9ca3af; font-size:16px; padding:0; width:auto; flex-shrink:0; }
+  .arquivo-remove:hover { color:#ef4444; }
+
+  .add-mais { display:flex; align-items:center; justify-content:center; gap:6px; border:1px dashed #c8c0b0; border-radius:4px; padding:10px; cursor:pointer; font-size:13px; color:var(--cinza); background:none; width:100%; margin-bottom:16px; transition:.2s; }
+  .add-mais:hover { border-color:var(--navy); color:var(--navy); background:var(--creme); }
+
+  .btn { display:block; width:100%; padding:16px; background:var(--navy); color:var(--creme); border:none; border-radius:4px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:.2s; letter-spacing:.5px; text-transform:uppercase; }
+  .btn:hover { background:var(--navy-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(30,42,58,.25); }
+  .btn:disabled { background:#d1d5db; color:#9ca3af; cursor:not-allowed; transform:none; box-shadow:none; }
+
+  .msg { margin-top:16px; padding:16px; border-radius:4px; font-size:13px; text-align:center; display:none; line-height:1.6; }
+  .msg.load { background:#eff6ff; color:#1d4ed8; display:block; }
+  .msg.ok   { background:var(--creme); color:var(--navy); border:1px solid #d0c8b8; display:block; }
+  .msg.err  { background:#fef2f2; color:#b91c1c; display:block; }
+
+  .spin { display:inline-block; width:14px; height:14px; border:2px solid #93c5fd; border-top-color:#1d4ed8; border-radius:50%; animation:sp .7s linear infinite; margin-right:6px; vertical-align:middle; }
+  @keyframes sp { to { transform:rotate(360deg); } }
+
+  .legal { margin-top:14px; font-size:11px; color:#9ca3af; text-align:center; line-height:1.5; }
 
   .garantias { display:flex; gap:10px; margin-top:24px; }
   .garantia { flex:1; background:#fff; border:1px solid #e5e0d8; border-radius:4px; padding:16px 10px; text-align:center; }
@@ -125,18 +141,31 @@
   </div>
 
   <div class="steps">
-    <div class="step"><div class="step-num">1</div><div class="step-txt">Clique em "Iniciar análise" abaixo</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-txt">Envie o PDF ou foto do seu contrato bancário</div></div>
+    <div class="step"><div class="step-num">1</div><div class="step-txt">Envie o PDF ou fotos do seu contrato bancário</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-txt">Nossa IA compara sua taxa com a média oficial do BACEN</div></div>
     <div class="step"><div class="step-num">3</div><div class="step-txt">Resultado completo chega no seu WhatsApp em 30 segundos</div></div>
   </div>
 
   <div class="card">
-    <div class="card-icon">📋</div>
-    <div class="card-titulo">Pronto para analisar seu contrato?</div>
-    <div class="card-sub">Clique abaixo para enviar o documento e receber a análise completa no WhatsApp.</div>
-    <a id="btnAnalise" class="btn-cta" href="#">
-      Iniciar análise gratuita →
-    </a>
+    <div class="drop" id="drop">
+      <div class="drop-icon">📂</div>
+      <div class="drop-title">Arraste aqui ou clique para selecionar</div>
+      <div class="drop-hint">PDF, JPG ou PNG · até 10 MB por arquivo<br>Pode enviar várias fotos do contrato</div>
+    </div>
+    <input type="file" id="fi" accept=".pdf,application/pdf,image/jpeg,image/jpg,image/png" multiple>
+
+    <div class="arquivos-lista" id="lista" style="display:none"></div>
+
+    <button class="add-mais" id="btnMais" style="display:none" onclick="document.getElementById('fi2').click()">
+      ➕ Adicionar mais arquivos
+    </button>
+    <input type="file" id="fi2" accept=".pdf,application/pdf,image/jpeg,image/jpg,image/png" multiple>
+
+    <button class="btn" id="btn" disabled onclick="analisar()">
+      Analisar meu contrato gratuitamente
+    </button>
+
+    <div class="msg" id="msg"></div>
     <p class="legal">🔒 Seus dados são protegidos e usados apenas para a análise jurídica.</p>
   </div>
 
@@ -155,11 +184,126 @@
 <script>
   const params   = new URLSearchParams(window.location.search);
   const telefone = params.get('tel') || '';
-  const APPS_SCRIPT_URL = 'https://revisao-proxy.lucas-moura-2d2.workers.dev';
 
-  // Monta o link com o telefone e aplica no botão
-  const destino = APPS_SCRIPT_URL + (telefone ? '?tel=' + telefone : '');
-  document.getElementById('btnAnalise').href = destino;
+  // Worker Cloudflare como proxy (resolve CORS)
+  const WORKER_URL = 'https://revisao-proxy.lucas-moura-2d2.workers.dev';
+
+  let arquivos = [];
+
+  function formatBytes(b) {
+    if (b < 1024) return b + ' B';
+    if (b < 1048576) return (b/1024).toFixed(0) + ' KB';
+    return (b/1048576).toFixed(1) + ' MB';
+  }
+
+  function iconeArquivo(f) {
+    return f.type === 'application/pdf' ? '📄' : '🖼️';
+  }
+
+  function renderLista() {
+    const lista   = document.getElementById('lista');
+    const btnMais = document.getElementById('btnMais');
+    const drop    = document.getElementById('drop');
+    const btn     = document.getElementById('btn');
+
+    if (arquivos.length === 0) {
+      lista.style.display = 'none';
+      btnMais.style.display = 'none';
+      drop.style.display = 'block';
+      btn.disabled = true;
+      return;
+    }
+
+    drop.style.display = 'none';
+    lista.style.display = 'flex';
+    btnMais.style.display = 'flex';
+    btn.disabled = false;
+
+    lista.innerHTML = arquivos.map((f, i) => `
+      <div class="arquivo-item">
+        <span class="arquivo-icon">${iconeArquivo(f)}</span>
+        <span class="arquivo-nome">${f.name}</span>
+        <span class="arquivo-size">${formatBytes(f.size)}</span>
+        <button class="arquivo-remove" onclick="removerArquivo(${i})" title="Remover">✕</button>
+      </div>
+    `).join('');
+  }
+
+  function removerArquivo(i) {
+    arquivos.splice(i, 1);
+    renderLista();
+  }
+
+  function adicionarArquivos(novos) {
+    for (const f of novos) {
+      if (f.size > 10 * 1024 * 1024) { alert('Arquivo "' + f.name + '" excede 10 MB.'); continue; }
+      if (!arquivos.find(x => x.name === f.name && x.size === f.size)) arquivos.push(f);
+    }
+    renderLista();
+  }
+
+  document.getElementById('drop').addEventListener('click', () => document.getElementById('fi').click());
+
+  const dropEl = document.getElementById('drop');
+  dropEl.addEventListener('dragover',  e => { e.preventDefault(); dropEl.classList.add('dragover'); });
+  dropEl.addEventListener('dragleave', () => dropEl.classList.remove('dragover'));
+  dropEl.addEventListener('drop', e => {
+    e.preventDefault();
+    dropEl.classList.remove('dragover');
+    adicionarArquivos(Array.from(e.dataTransfer.files));
+  });
+
+  document.getElementById('fi').addEventListener('change',  e => { adicionarArquivos(Array.from(e.target.files)); e.target.value = ''; });
+  document.getElementById('fi2').addEventListener('change', e => { adicionarArquivos(Array.from(e.target.files)); e.target.value = ''; });
+
+  function status(t, m) {
+    const el = document.getElementById('msg');
+    el.className = 'msg ' + t;
+    el.innerHTML = m;
+  }
+
+  function lerArquivo(f) {
+    return new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload = e => res({ b64: e.target.result.split(',')[1], tipo: f.type, nome: f.name });
+      r.onerror = rej;
+      r.readAsDataURL(f);
+    });
+  }
+
+  async function analisar() {
+    if (arquivos.length === 0) return;
+    document.getElementById('btn').disabled = true;
+    document.getElementById('btnMais').style.display = 'none';
+    status('load', '<span class="spin"></span> Analisando seu contrato com IA...');
+
+    try {
+      const lidos = await Promise.all(arquivos.map(lerArquivo));
+
+      const resp = await fetch(WORKER_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ arquivos: lidos, telefone: telefone })
+      });
+
+      const resultado = await resp.json();
+
+      if (resultado.sucesso) {
+        status('ok', resultado.abusivo
+          ? '⚠️ <strong>Indícios de abusividade detectados!</strong><br>O resultado foi enviado para o seu WhatsApp.'
+          : '✅ <strong>Análise concluída!</strong><br>O resultado foi enviado para o seu WhatsApp.');
+      } else {
+        status('err', '❌ ' + (resultado.erro || 'Erro na análise. Tente novamente.'));
+        document.getElementById('btn').disabled = false;
+        document.getElementById('btnMais').style.display = 'flex';
+      }
+
+    } catch(e) {
+      status('err', '❌ Erro ao enviar. Tente novamente.');
+      document.getElementById('btn').disabled = false;
+      document.getElementById('btnMais').style.display = 'flex';
+    }
+  }
 </script>
 
 </body>
