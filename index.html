@@ -3,133 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análise Gratuita de Contrato — Nascimento Moura Advogados Associados</title>
+<title>Análise de Contrato — Nascimento Moura Advogados Associados</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#1e2a3a;--navy-dark:#141d28;--creme:#f0ebe0;--ouro:#c9a84c;--cinza:#6b7280;--bg:#f7f5f0}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);min-height:100vh;color:var(--navy)}
-.hero{background:linear-gradient(140deg,#141d28 0%,#1e2a3a 60%,#2a3a50 100%);padding:52px 24px 68px;text-align:center;position:relative;overflow:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);min-height:100vh;color:var(--navy);display:flex;flex-direction:column}
+.hero{background:linear-gradient(140deg,#141d28 0%,#1e2a3a 60%,#2a3a50 100%);padding:40px 24px 48px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:rgba(201,168,76,.04);border-radius:50%}
-.logo-mono{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border:2px solid rgba(201,168,76,.5);margin-bottom:10px}
-.logo-mono::before{content:'NM';font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--creme);letter-spacing:1px}
-.logo-nome{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:rgba(240,235,224,.8);letter-spacing:3px;text-transform:uppercase;display:block}
-.logo-sub{font-size:10px;color:rgba(240,235,224,.45);letter-spacing:4px;text-transform:uppercase;display:block;margin-top:3px}
-.hero-linha{width:48px;height:1px;background:rgba(201,168,76,.4);margin:20px auto}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,50px);color:var(--creme);line-height:1.15;margin-bottom:20px;font-weight:600;letter-spacing:-.5px}
+.logo-mono{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:2px solid rgba(201,168,76,.5);margin-bottom:8px}
+.logo-mono::before{content:'NM';font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--creme);letter-spacing:1px}
+.logo-nome{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;color:rgba(240,235,224,.8);letter-spacing:3px;text-transform:uppercase;display:block}
+.logo-sub{font-size:10px;color:rgba(240,235,224,.4);letter-spacing:4px;text-transform:uppercase;display:block;margin-top:2px}
+.hero-linha{width:40px;height:1px;background:rgba(201,168,76,.4);margin:16px auto}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,6vw,38px);color:var(--creme);line-height:1.2;margin-bottom:10px;font-weight:600;letter-spacing:-.3px}
 .hero h1 em{font-style:italic;color:var(--ouro)}
-.hero p{font-size:15px;color:rgba(240,235,224,.7);max-width:460px;margin:0 auto 32px;line-height:1.8}
-.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);color:var(--ouro);font-size:11px;font-weight:600;padding:8px 18px;border-radius:2px;letter-spacing:1px;text-transform:uppercase}
-.stats{display:flex;justify-content:center;background:var(--navy);border-bottom:1px solid rgba(201,168,76,.15)}
-.stat{flex:1;max-width:180px;padding:24px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
-.stat:last-child{border-right:none}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--ouro);line-height:1;margin-bottom:6px}
-.stat-label{font-size:11px;color:rgba(240,235,224,.55);line-height:1.4}
-.stat-destaque{font-size:10px;color:rgba(201,168,76,.7);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.8px}
-.main{max-width:520px;margin:0 auto;padding:36px 16px 52px}
-.section-header{margin-bottom:24px}
-.section-titulo{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--navy);margin-bottom:6px;font-weight:600}
-.section-linha{width:32px;height:2px;background:var(--ouro);margin-bottom:10px}
-.section-sub{font-size:14px;color:var(--cinza);line-height:1.7}
-.steps{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.step{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e5e0d8;border-radius:4px;padding:14px 16px}
-.step-num{width:28px;height:28px;background:var(--navy);color:var(--creme);border-radius:2px;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-txt{font-size:13px;color:#374151;font-weight:500}
+.hero p{font-size:14px;color:rgba(240,235,224,.65);max-width:380px;margin:0 auto;line-height:1.7}
 
-/* ── FORM CARD ── */
-.card{background:#fff;border:1px solid #e5e0d8;border-radius:4px;padding:32px 24px;box-shadow:0 4px 32px rgba(30,42,58,.07)}
-.card-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--navy);font-weight:600;margin-bottom:6px}
-.card-sub{font-size:13px;color:var(--cinza);margin-bottom:24px;line-height:1.6}
-.field{margin-bottom:14px}
-.field label{display:block;font-size:11px;font-weight:600;color:var(--navy);letter-spacing:.7px;text-transform:uppercase;margin-bottom:6px}
-.field input{width:100%;padding:12px 14px;border:1.5px solid #d5cfc4;background:#faf9f6;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--navy);outline:none;border-radius:2px;transition:border-color .2s}
-.field input:focus{border-color:var(--ouro);background:#fff}
-.field input::placeholder{color:#a8a29e}
-.drop-label{display:block;font-size:11px;font-weight:600;color:var(--navy);letter-spacing:.7px;text-transform:uppercase;margin-bottom:6px}
-.drop-zone{border:2px dashed #d5cfc4;background:#faf9f6;padding:28px 16px;text-align:center;cursor:pointer;transition:all .2s;position:relative;border-radius:2px;margin-bottom:16px}
+.main{flex:1;max-width:480px;width:100%;margin:0 auto;padding:32px 16px 48px}
+
+.card{background:#fff;border:1px solid #e5e0d8;border-radius:4px;padding:28px 24px;box-shadow:0 4px 32px rgba(30,42,58,.07)}
+.card-titulo{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy);font-weight:600;margin-bottom:4px}
+.card-sub{font-size:13px;color:var(--cinza);margin-bottom:22px;line-height:1.6}
+
+.drop-zone{border:2px dashed #d5cfc4;background:#faf9f6;padding:36px 20px;text-align:center;cursor:pointer;transition:all .25s;position:relative;border-radius:2px}
 .drop-zone.drag-over{border-color:var(--ouro);background:rgba(201,168,76,.06)}
 .drop-zone.has-file{border-color:#16a34a;border-style:solid;background:#f0fdf4}
-.drop-icon{font-size:32px;display:block;margin-bottom:8px;transition:transform .2s}
-.drop-zone:hover .drop-icon,.drop-zone.drag-over .drop-icon{transform:translateY(-2px)}
-.drop-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:3px}
-.drop-sub{font-size:12px;color:var(--cinza);line-height:1.6}
+.drop-icon{font-size:36px;display:block;margin-bottom:10px;transition:transform .2s}
+.drop-zone:hover .drop-icon,.drop-zone.drag-over .drop-icon{transform:translateY(-3px)}
+.drop-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.drop-sub{font-size:12px;color:var(--cinza);line-height:1.7}
 .drop-sub strong{color:var(--navy)}
 .drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.file-info{display:none;align-items:center;gap:10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:2px;padding:10px 14px;margin-bottom:16px}
+
+.file-info{display:none;align-items:center;gap:10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:2px;padding:11px 14px;margin-top:12px}
 .file-info.visible{display:flex}
 .file-nome{font-size:13px;color:#15803d;font-weight:500;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .file-remover{font-size:11px;color:#dc2626;cursor:pointer;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border:1px solid #fca5a5;background:#fff5f5;border-radius:2px;flex-shrink:0}
-.btn-cta{display:block;width:100%;padding:16px;background:var(--navy);color:var(--creme);border:none;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:.2s;letter-spacing:.5px;text-transform:uppercase}
-.btn-cta:hover:not(:disabled){background:var(--navy-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,42,58,.25)}
-.btn-cta:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+.btn-enviar{display:block;width:100%;padding:16px;background:var(--navy);color:var(--creme);border:none;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:.2s;letter-spacing:.6px;text-transform:uppercase;margin-top:16px}
+.btn-enviar:hover:not(:disabled){background:var(--navy-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,42,58,.25)}
+.btn-enviar:disabled{opacity:.6;cursor:not-allowed;transform:none}
 .spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(240,235,224,.3);border-top-color:var(--creme);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
+
 .msg{display:none;padding:14px;margin-top:14px;font-size:13px;line-height:1.6;border-radius:2px}
 .msg.sucesso{display:block;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d}
 .msg.erro{display:block;background:#fef2f2;border:1px solid #fecaca;color:#dc2626}
 .msg strong{display:block;font-size:14px;margin-bottom:3px}
-.legal{margin-top:12px;font-size:11px;color:#9ca3af;line-height:1.5;text-align:center}
-.garantias{display:flex;gap:10px;margin-top:24px}
-.garantia{flex:1;background:#fff;border:1px solid #e5e0d8;border-radius:4px;padding:16px 10px;text-align:center}
-.garantia-icon{font-size:22px;margin-bottom:6px}
-.garantia-txt{font-size:11px;color:var(--cinza);line-height:1.4;font-weight:500}
-footer{text-align:center;padding:28px 16px;font-size:11px;color:#9ca3af;border-top:1px solid #e5e0d8;margin-top:16px;letter-spacing:.5px}
+.legal{margin-top:12px;font-size:11px;color:#9ca3af;text-align:center;line-height:1.5}
+
+footer{text-align:center;padding:24px 16px;font-size:11px;color:#9ca3af;border-top:1px solid #e5e0d8;letter-spacing:.4px}
 footer strong{color:var(--navy)}
 </style>
 </head>
 <body>
+
 <div class="hero">
   <div class="logo-mono"></div>
   <span class="logo-nome">Nascimento Moura</span>
   <span class="logo-sub">Advogados Associados</span>
   <div class="hero-linha"></div>
-  <h1>O banco te cobrou mais<br>do que a lei <em>permite.</em></h1>
-  <p>Nossa IA analisa seu contrato em segundos e compara com as taxas oficiais do Banco Central. Descubra agora se você tem direito à revisão.</p>
-  <div class="badge">✦ Análise gratuita · sem compromisso</div>
+  <h1>Envie seu contrato<br>para <em>análise gratuita</em></h1>
+  <p>Nossa IA compara sua taxa com as médias oficiais do Banco Central e envia o resultado no seu WhatsApp.</p>
 </div>
-<div class="stats">
-  <div class="stat">
-    <div class="stat-num">7 em 10</div>
-    <div class="stat-label">contratos têm juros acima do limite aceito pelo STJ</div>
-    <div class="stat-destaque">Você pode ser um deles</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">R$50mil+</div>
-    <div class="stat-label">é a economia média recuperada por contrato revisado</div>
-    <div class="stat-destaque">Dinheiro que é seu</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">30 seg</div>
-    <div class="stat-label">para receber o resultado completo no WhatsApp</div>
-    <div class="stat-destaque">Resultado imediato</div>
-  </div>
-</div>
+
 <div class="main">
-  <div class="section-header">
-    <div class="section-linha"></div>
-    <h2 class="section-titulo">Como funciona</h2>
-    <p class="section-sub">Em menos de 1 minuto você descobre se o banco cobrou mais do que a lei permite.</p>
-  </div>
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><div class="step-txt">Preencha nome e WhatsApp para receber o resultado</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-txt">Envie o PDF ou foto do seu contrato de crédito</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-txt">Nossa IA compara sua taxa com a média oficial do BACEN</div></div>
-  </div>
-
   <div class="card">
-    <div class="card-titulo">Analisar meu contrato agora</div>
-    <p class="card-sub">Gratuito, sem compromisso. Resultado em 30 segundos no WhatsApp.</p>
+    <div class="card-titulo">Enviar contrato</div>
+    <p class="card-sub">Arraste ou selecione o PDF ou foto do seu contrato de crédito.</p>
 
-    <div class="field">
-      <label>Seu nome</label>
-      <input type="text" id="nome" placeholder="Ex: João da Silva" autocomplete="name">
-    </div>
-    <div class="field">
-      <label>WhatsApp (com DDD)</label>
-      <input type="tel" id="telefone" placeholder="Ex: 66 99999-9999" autocomplete="tel">
-    </div>
-
-    <span class="drop-label">Contrato (PDF ou imagem)</span>
     <div class="drop-zone" id="dropZone">
       <span class="drop-icon">📄</span>
       <div class="drop-title">Arraste o arquivo aqui</div>
@@ -143,30 +86,26 @@ footer strong{color:var(--navy)}
       <span class="file-remover" id="fileRemover">Remover</span>
     </div>
 
-    <button class="btn-cta" id="btnEnviar" onclick="enviar()">Enviar para análise →</button>
+    <button class="btn-enviar" id="btnEnviar" onclick="enviar()">Analisar contrato →</button>
 
     <div class="msg" id="msgSucesso">
-      <strong>🎉 Contrato enviado com sucesso!</strong>
-      Em instantes você receberá o resultado completo no WhatsApp.
+      <strong>🎉 Contrato enviado!</strong>
+      Em instantes você receberá o resultado completo no seu WhatsApp.
     </div>
     <div class="msg" id="msgErro">
       <strong>⚠️ <span id="msgErroTexto">Algo deu errado.</span></strong>
       Tente novamente ou entre em contato via WhatsApp.
     </div>
 
-    <p class="legal">🔒 Seus dados são protegidos e usados apenas para a análise jurídica.</p>
-  </div>
-
-  <div class="garantias">
-    <div class="garantia"><div class="garantia-icon">🆓</div><div class="garantia-txt">Totalmente gratuito</div></div>
-    <div class="garantia"><div class="garantia-icon">⚡</div><div class="garantia-txt">Resultado em 30 segundos</div></div>
-    <div class="garantia"><div class="garantia-icon">🔐</div><div class="garantia-txt">100% confidencial</div></div>
+    <p class="legal">🔒 Documento protegido e usado apenas para análise jurídica.</p>
   </div>
 </div>
-<footer><strong>Nascimento Moura Advogados Associados</strong><br>OAB/MT · Sorriso · Nova Mutum · Cuiabá · nascimentomouraadv.com.br</footer>
+
+<footer><strong>Nascimento Moura Advogados Associados</strong><br>OAB/MT · Sorriso · Nova Mutum · Cuiabá</footer>
 
 <script>
 let arquivoSelecionado = null;
+const tel = new URLSearchParams(window.location.search).get('tel') || '';
 const dz = document.getElementById('dropZone');
 const fi = document.getElementById('fileInput');
 
@@ -191,21 +130,9 @@ function setArquivo(file) {
   document.getElementById('fileInfo').classList.add('visible');
 }
 
-document.getElementById('telefone').addEventListener('input', function() {
-  let v = this.value.replace(/\D/g, '').slice(0, 11);
-  if (v.length > 10) v = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-  else if (v.length > 6) v = v.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
-  else if (v.length > 2) v = v.replace(/(\d{2})(\d+)/, '($1) $2');
-  this.value = v;
-});
-
 async function enviar() {
-  const nome = document.getElementById('nome').value.trim();
-  const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
   document.getElementById('msgSucesso').className = 'msg';
   document.getElementById('msgErro').className = 'msg';
-  if (!nome) { alert('Por favor, informe seu nome.'); return; }
-  if (telefone.length < 10) { alert('Por favor, informe um telefone válido com DDD.'); return; }
   if (!arquivoSelecionado) { alert('Por favor, selecione o arquivo do contrato.'); return; }
   const btn = document.getElementById('btnEnviar');
   btn.disabled = true;
@@ -215,7 +142,7 @@ async function enviar() {
     const resp = await fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ telefone, nome, arquivos: [{ nome: arquivoSelecionado.name, b64 }] })
+      body: JSON.stringify({ telefone: tel, arquivos: [{ nome: arquivoSelecionado.name, b64 }] })
     });
     const data = await resp.json();
     if (data.sucesso !== false) {
