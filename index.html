@@ -324,9 +324,9 @@
     </button>
     <input type="file" id="fi2" accept=".pdf,application/pdf,image/jpeg,image/jpg,image/png" multiple>
 
-    <button class="btn" id="btn" disabled onclick="analisar()">
-      Analisar meu contrato gratuitamente
-    </button>
+    <button class="btn" onclick="irParaFormulario()">
+  Analisar meu contrato gratuitamente
+</button>
 
     <div class="msg" id="msg"></div>
     <p class="legal">🔒 Seus dados são protegidos e usados apenas para a análise jurídica.</p>
@@ -347,111 +347,14 @@
 <script>
   const params   = new URLSearchParams(window.location.search);
   const telefone = params.get('tel') || '';
+
+  // Se tem telefone, redireciona direto para o Apps Script
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_x486rtYx_ImS1gqICrTzgVFdWiId4-vOLPHj-GC_bP8MDzrJgDQaNHobfgPbgo-K0Q/exec';
 
-  let arquivos = [];
-
-  function formatBytes(b) {
-    if (b < 1024) return b + ' B';
-    if (b < 1048576) return (b/1024).toFixed(0) + ' KB';
-    return (b/1048576).toFixed(1) + ' MB';
-  }
-
-  function iconeArquivo(f) {
-    return f.type === 'application/pdf' ? '📄' : '🖼️';
-  }
-
-  function renderLista() {
-    const lista   = document.getElementById('lista');
-    const btnMais = document.getElementById('btnMais');
-    const drop    = document.getElementById('drop');
-    const btn     = document.getElementById('btn');
-
-    if (arquivos.length === 0) {
-      lista.style.display = 'none';
-      btnMais.style.display = 'none';
-      drop.style.display = 'block';
-      btn.disabled = true;
-      return;
-    }
-
-    drop.style.display = 'none';
-    lista.style.display = 'flex';
-    btnMais.style.display = 'flex';
-    btn.disabled = false;
-
-    lista.innerHTML = arquivos.map((f, i) => `
-      <div class="arquivo-item">
-        <span class="arquivo-icon">${iconeArquivo(f)}</span>
-        <span class="arquivo-nome">${f.name}</span>
-        <span class="arquivo-size">${formatBytes(f.size)}</span>
-        <button class="arquivo-remove" onclick="removerArquivo(${i})" title="Remover">✕</button>
-      </div>
-    `).join('');
-  }
-
-  function removerArquivo(i) {
-    arquivos.splice(i, 1);
-    renderLista();
-  }
-
-  function adicionarArquivos(novos) {
-    for (const f of novos) {
-      if (f.size > 10 * 1024 * 1024) { alert('Arquivo "' + f.name + '" excede 10 MB.'); continue; }
-      if (!arquivos.find(x => x.name === f.name && x.size === f.size)) arquivos.push(f);
-    }
-    renderLista();
-  }
-
-  document.getElementById('drop').addEventListener('click', () => document.getElementById('fi').click());
-
-  const drop = document.getElementById('drop');
-  drop.addEventListener('dragover',  e => { e.preventDefault(); drop.classList.add('dragover'); });
-  drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
-  drop.addEventListener('drop', e => {
-    e.preventDefault();
-    drop.classList.remove('dragover');
-    adicionarArquivos(Array.from(e.dataTransfer.files));
-  });
-
-  document.getElementById('fi').addEventListener('change',  e => { adicionarArquivos(Array.from(e.target.files)); e.target.value = ''; });
-  document.getElementById('fi2').addEventListener('change', e => { adicionarArquivos(Array.from(e.target.files)); e.target.value = ''; });
-
-  function status(t, m) {
-    const el = document.getElementById('msg');
-    el.className = 'msg ' + t;
-    el.innerHTML = m;
-  }
-
-  function lerArquivo(f) {
-    return new Promise((res, rej) => {
-      const r = new FileReader();
-      r.onload = e => res({ b64: e.target.result.split(',')[1], tipo: f.type, nome: f.name });
-      r.onerror = rej;
-      r.readAsDataURL(f);
-    });
-  }
-
-  async function analisar() {
-    if (arquivos.length === 0) return;
-    document.getElementById('btn').disabled = true;
-    document.getElementById('btnMais').style.display = 'none';
-    status('load', '<span class="spin"></span> Analisando seu contrato com IA...');
-
-    try {
-      const lidos = await Promise.all(arquivos.map(lerArquivo));
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'analisar', arquivos: lidos, telefone: telefone })
-      });
-      status('ok', '⚠️ <strong>Análise em andamento!</strong><br>Você receberá o resultado no WhatsApp em instantes.');
-    } catch(e) {
-      status('err', '❌ Erro ao enviar. Tente novamente.');
-      document.getElementById('btn').disabled = false;
-      document.getElementById('btnMais').style.display = 'flex';
-    }
+  // Ao clicar em analisar, redireciona para Apps Script com telefone
+  function irParaFormulario() {
+    const destino = APPS_SCRIPT_URL + (telefone ? '?tel=' + telefone : '');
+    window.location.href = destino;
   }
 </script>
 
