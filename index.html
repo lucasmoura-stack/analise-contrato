@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análise Gratuita de Contrato — Nascimento Moura Advocacia</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Análise Gratuita de Contrato — Nascimento Moura Advogados Associados</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --verde: #4a5e3a;
-    --verde-dark: #3a4a2d;
-    --verde-med: #5c7048;
-    --verde-light: #eef2ea;
+    --navy: #1e2a3a;
+    --navy-dark: #141d28;
+    --navy-med: #2a3a50;
+    --creme: #f0ebe0;
+    --creme-dark: #e0d9cc;
     --ouro: #c9a84c;
-    --ouro-light: #fdf6e3;
     --cinza: #6b7280;
-    --texto: #1a1f13;
-    --bg: #f5f6f2;
+    --texto: #1e2a3a;
+    --bg: #f7f5f0;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,8 +29,8 @@
 
   /* HERO */
   .hero {
-    background: linear-gradient(140deg, #2c3821 0%, #3d4f2c 55%, #4a5e3a 100%);
-    padding: 48px 24px 64px;
+    background: linear-gradient(140deg, #141d28 0%, #1e2a3a 60%, #2a3a50 100%);
+    padding: 52px 24px 68px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -39,9 +39,9 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -80px; right: -80px;
-    width: 320px; height: 320px;
-    background: rgba(201,168,76,.06);
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: rgba(201,168,76,.04);
     border-radius: 50%;
   }
 
@@ -49,297 +49,280 @@
     content: '';
     position: absolute;
     bottom: -60px; left: -60px;
-    width: 220px; height: 220px;
-    background: rgba(255,255,255,.03);
+    width: 250px; height: 250px;
+    background: rgba(240,235,224,.03);
     border-radius: 50%;
   }
 
-  .logo {
-    font-size: 12px;
-    font-weight: 600;
-    color: rgba(255,255,255,.6);
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(26px, 6vw, 44px);
-    color: #fff;
-    line-height: 1.2;
-    margin-bottom: 16px;
+  .logo-area {
+    margin-bottom: 28px;
     position: relative;
   }
 
-  .hero h1 span { color: var(--ouro); }
+  .logo-monograma {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px; height: 52px;
+    border: 2px solid rgba(201,168,76,.5);
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .logo-monograma::before {
+    content: 'NM';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--creme);
+    letter-spacing: 1px;
+  }
+
+  .logo-nome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(240,235,224,.8);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .logo-sub {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(240,235,224,.45);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 3px;
+  }
+
+  .hero-linha {
+    width: 48px;
+    height: 1px;
+    background: rgba(201,168,76,.4);
+    margin: 20px auto;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 7vw, 50px);
+    color: var(--creme);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    letter-spacing: -.5px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--ouro);
+  }
 
   .hero p {
     font-size: 15px;
-    color: rgba(255,255,255,.75);
+    color: rgba(240,235,224,.7);
     max-width: 460px;
     margin: 0 auto 32px;
-    line-height: 1.7;
+    line-height: 1.8;
+    font-weight: 400;
   }
 
   .badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(201,168,76,.15);
-    border: 1px solid rgba(201,168,76,.35);
+    gap: 8px;
+    background: rgba(201,168,76,.12);
+    border: 1px solid rgba(201,168,76,.3);
     color: var(--ouro);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    padding: 7px 16px;
-    border-radius: 100px;
-    letter-spacing: .5px;
+    padding: 8px 18px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 
   /* STATS */
   .stats {
     display: flex;
     justify-content: center;
-    background: #fff;
-    border-bottom: 1px solid #e2e5dc;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(201,168,76,.15);
   }
 
   .stat {
     flex: 1;
     max-width: 180px;
-    padding: 22px 16px;
+    padding: 24px 16px;
     text-align: center;
-    border-right: 1px solid #e2e5dc;
+    border-right: 1px solid rgba(255,255,255,.08);
   }
 
   .stat:last-child { border-right: none; }
 
   .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
     font-weight: 700;
-    color: var(--verde);
+    color: var(--ouro);
     line-height: 1;
     margin-bottom: 6px;
   }
 
   .stat-label {
     font-size: 11px;
-    color: var(--cinza);
+    color: rgba(240,235,224,.55);
     line-height: 1.4;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .stat-destaque {
     font-size: 10px;
-    color: var(--ouro);
+    color: rgba(201,168,76,.7);
     font-weight: 600;
-    margin-top: 3px;
+    margin-top: 4px;
     text-transform: uppercase;
-    letter-spacing: .5px;
+    letter-spacing: .8px;
   }
 
   /* MAIN */
-  .main {
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 32px 16px 48px;
-  }
+  .main { max-width: 520px; margin: 0 auto; padding: 36px 16px 52px; }
 
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: var(--texto);
-    margin-bottom: 8px;
-  }
+  .section-header { margin-bottom: 24px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--texto); margin-bottom: 6px; font-weight: 600; }
+  .section-linha { width: 32px; height: 2px; background: var(--ouro); margin-bottom: 10px; }
+  .section-sub { font-size: 14px; color: var(--cinza); line-height: 1.7; }
 
-  .section-sub {
-    font-size: 14px;
-    color: var(--cinza);
-    margin-bottom: 24px;
-    line-height: 1.6;
-  }
-
-  /* STEPS */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-
-  .step {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: #fff;
-    border: 1px solid #e2e5dc;
-    border-radius: 12px;
-    padding: 14px 16px;
-  }
-
-  .step-num {
-    width: 28px; height: 28px;
-    background: var(--verde);
-    color: #fff;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
+  .steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .step { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid #e5e0d8; border-radius: 4px; padding: 14px 16px; }
+  .step-num { width: 28px; height: 28px; background: var(--navy); color: var(--creme); border-radius: 2px; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Cormorant Garamond', serif; font-size: 15px; }
   .step-txt { font-size: 13px; color: #374151; font-weight: 500; }
 
   /* CARD */
-  .card {
-    background: #fff;
-    border: 1px solid #e2e5dc;
-    border-radius: 20px;
-    padding: 28px 24px;
-    box-shadow: 0 4px 24px rgba(0,0,0,.05);
-  }
+  .card { background: #fff; border: 1px solid #e5e0d8; border-radius: 4px; padding: 28px 24px; box-shadow: 0 4px 32px rgba(30,42,58,.07); }
 
+  /* DROP */
   .drop {
-    border: 2px dashed #c8cfc0;
-    border-radius: 14px;
-    padding: 32px 20px;
+    border: 2px dashed #c8c0b0;
+    border-radius: 4px;
+    padding: 36px 20px;
     text-align: center;
     cursor: pointer;
     transition: .2s;
     margin-bottom: 16px;
-    background: #fafaf8;
+    background: #faf8f4;
   }
-
-  .drop:hover, .drop.ok {
-    border-color: var(--verde);
-    background: var(--verde-light);
-  }
-
-  .drop-icon { font-size: 40px; margin-bottom: 10px; }
-  .drop-title { font-size: 15px; font-weight: 600; color: #374151; margin-bottom: 4px; }
-  .drop-hint { font-size: 12px; color: #9ca3af; }
-  .drop-nome { font-size: 13px; color: var(--verde); font-weight: 600; margin-top: 8px; }
+  .drop:hover, .drop.dragover { border-color: var(--navy); background: var(--creme); }
+  .drop.ok { border-color: var(--navy); border-style: solid; background: var(--creme); }
+  .drop-icon { font-size: 36px; margin-bottom: 10px; }
+  .drop-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; font-family: 'Cormorant Garamond', serif; font-size: 17px; }
+  .drop-hint { font-size: 12px; color: #9ca3af; line-height: 1.6; }
 
   input[type=file] { display: none; }
 
-  .btn {
-    display: block; width: 100%;
-    padding: 16px;
-    background: var(--verde);
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px; font-weight: 600;
-    cursor: pointer;
-    transition: .2s;
-    letter-spacing: .3px;
-  }
+  /* LISTA */
+  .arquivos-lista { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .arquivo-item { display: flex; align-items: center; gap: 10px; background: var(--creme); border: 1px solid #d0c8b8; border-radius: 4px; padding: 10px 12px; }
+  .arquivo-icon { font-size: 20px; flex-shrink: 0; }
+  .arquivo-nome { font-size: 13px; font-weight: 500; color: var(--navy); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .arquivo-size { font-size: 11px; color: var(--cinza); flex-shrink: 0; }
+  .arquivo-remove { background: none; border: none; cursor: pointer; color: #9ca3af; font-size: 16px; padding: 0; width: auto; flex-shrink: 0; }
+  .arquivo-remove:hover { color: #ef4444; }
 
-  .btn:hover { background: var(--verde-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(74,94,58,.3); }
-  .btn:disabled { background: #d1d5db; cursor: not-allowed; transform: none; box-shadow: none; }
+  .add-mais { display: flex; align-items: center; justify-content: center; gap: 6px; border: 1px dashed #c8c0b0; border-radius: 4px; padding: 10px; cursor: pointer; font-size: 13px; color: var(--cinza); background: none; width: 100%; margin-bottom: 16px; transition: .2s; }
+  .add-mais:hover { border-color: var(--navy); color: var(--navy); background: var(--creme); }
 
-  .msg {
-    margin-top: 16px; padding: 16px;
-    border-radius: 12px; font-size: 13px;
-    text-align: center; display: none; line-height: 1.6;
-  }
+  .btn { display: block; width: 100%; padding: 16px; background: var(--navy); color: var(--creme); border: none; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: .2s; letter-spacing: .5px; text-transform: uppercase; }
+  .btn:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(30,42,58,.25); }
+  .btn:disabled { background: #d1d5db; color: #9ca3af; cursor: not-allowed; transform: none; box-shadow: none; }
 
+  .msg { margin-top: 16px; padding: 16px; border-radius: 4px; font-size: 13px; text-align: center; display: none; line-height: 1.6; }
   .msg.load { background: #eff6ff; color: #1d4ed8; display: block; }
-  .msg.ok   { background: var(--verde-light); color: var(--verde-dark); display: block; }
+  .msg.ok   { background: var(--creme); color: var(--navy); border: 1px solid #d0c8b8; display: block; }
   .msg.err  { background: #fef2f2; color: #b91c1c; display: block; }
 
-  .spin {
-    display: inline-block; width: 14px; height: 14px;
-    border: 2px solid #93c5fd; border-top-color: #1d4ed8;
-    border-radius: 50%;
-    animation: sp .7s linear infinite;
-    margin-right: 6px; vertical-align: middle;
-  }
-
+  .spin { display: inline-block; width: 14px; height: 14px; border: 2px solid #93c5fd; border-top-color: #1d4ed8; border-radius: 50%; animation: sp .7s linear infinite; margin-right: 6px; vertical-align: middle; }
   @keyframes sp { to { transform: rotate(360deg); } }
 
   .legal { margin-top: 14px; font-size: 11px; color: #9ca3af; text-align: center; line-height: 1.5; }
 
   /* GARANTIAS */
   .garantias { display: flex; gap: 10px; margin-top: 24px; }
-
-  .garantia {
-    flex: 1;
-    background: #fff;
-    border: 1px solid #e2e5dc;
-    border-radius: 12px;
-    padding: 14px 10px;
-    text-align: center;
-  }
-
-  .garantia-icon { font-size: 22px; margin-bottom: 5px; }
+  .garantia { flex: 1; background: #fff; border: 1px solid #e5e0d8; border-radius: 4px; padding: 16px 10px; text-align: center; }
+  .garantia-icon { font-size: 22px; margin-bottom: 6px; }
   .garantia-txt { font-size: 11px; color: var(--cinza); line-height: 1.4; font-weight: 500; }
 
-  footer {
-    text-align: center; padding: 24px 16px;
-    font-size: 12px; color: #9ca3af;
-    border-top: 1px solid #e2e5dc; margin-top: 16px;
-  }
+  /* FOOTER */
+  footer { text-align: center; padding: 28px 16px; font-size: 11px; color: #9ca3af; border-top: 1px solid #e5e0d8; margin-top: 16px; letter-spacing: .5px; }
+  footer strong { color: var(--navy); }
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <div class="logo">⚖️ Nascimento Moura Advocacia</div>
-  <h1>Seu banco cobrou<br><span>juros abusivos?</span></h1>
-  <p>Nossa IA compara as taxas do seu contrato com a média oficial do Banco Central. Você descobre na hora se tem direito à revisão.</p>
-  <div class="badge">✦ Análise 100% gratuita e sem compromisso</div>
+  <div class="logo-area">
+    <div class="logo-monograma"></div>
+    <span class="logo-nome">Nascimento Moura</span>
+    <span class="logo-sub">Advogados Associados</span>
+  </div>
+
+  <div class="hero-linha"></div>
+
+  <h1>O banco te cobrou mais<br>do que a lei <em>permite.</em></h1>
+
+  <p>Nossa IA analisa seu contrato em segundos e compara com as taxas oficiais do Banco Central. Descubra agora se você tem direito à revisão.</p>
+
+  <div class="badge">✦ Análise gratuita · sem compromisso</div>
 </div>
 
 <div class="stats">
   <div class="stat">
     <div class="stat-num">7 em 10</div>
-    <div class="stat-label">contratos analisados têm juros acima do permitido pelo STJ</div>
+    <div class="stat-label">contratos têm juros acima do limite aceito pelo STJ</div>
     <div class="stat-destaque">Você pode ser um deles</div>
   </div>
   <div class="stat">
-    <div class="stat-num">R$ 50mil+</div>
+    <div class="stat-num">R$50mil+</div>
     <div class="stat-label">é a economia média recuperada por contrato revisado</div>
     <div class="stat-destaque">Dinheiro que é seu</div>
   </div>
   <div class="stat">
     <div class="stat-num">30 seg</div>
-    <div class="stat-label">é o tempo para receber o resultado no WhatsApp</div>
+    <div class="stat-label">para receber o resultado completo no WhatsApp</div>
     <div class="stat-destaque">Resultado imediato</div>
   </div>
 </div>
 
 <div class="main">
-  <h2 class="section-title">Como funciona</h2>
-  <p class="section-sub">Em menos de 1 minuto você descobre se o banco cobrou mais do que a lei permite.</p>
+  <div class="section-header">
+    <div class="section-linha"></div>
+    <h2 class="section-title">Como funciona</h2>
+    <p class="section-sub">Em menos de 1 minuto você descobre se o banco cobrou mais do que a lei permite.</p>
+  </div>
 
   <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-txt">Selecione o PDF do seu contrato bancário</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-txt">Nossa IA compara sua taxa com a média oficial do BACEN</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-txt">Resultado completo chega no seu WhatsApp em 30 segundos</div>
-    </div>
+    <div class="step"><div class="step-num">1</div><div class="step-txt">Envie o PDF ou fotos do seu contrato bancário</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-txt">Nossa IA compara sua taxa com a média oficial do BACEN</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-txt">Resultado completo chega no seu WhatsApp em 30 segundos</div></div>
   </div>
 
   <div class="card">
-    <div class="drop" id="drop" onclick="document.getElementById('fi').click()">
-      <div class="drop-icon">📄</div>
-      <div class="drop-title">Clique para selecionar o PDF</div>
-      <div class="drop-hint">Apenas PDF · máx. 10 MB</div>
-      <div class="drop-nome" id="fn"></div>
+    <div class="drop" id="drop">
+      <div class="drop-icon">📂</div>
+      <div class="drop-title">Arraste aqui ou clique para selecionar</div>
+      <div class="drop-hint">PDF, JPG ou PNG · até 10 MB por arquivo<br>Pode enviar várias fotos do contrato</div>
     </div>
-    <input type="file" id="fi" accept=".pdf,application/pdf">
+    <input type="file" id="fi" accept=".pdf,application/pdf,image/jpeg,image/jpg,image/png" multiple>
+
+    <div class="arquivos-lista" id="lista" style="display:none"></div>
+
+    <button class="add-mais" id="btnMais" style="display:none" onclick="document.getElementById('fi2').click()">
+      ➕ Adicionar mais arquivos
+    </button>
+    <input type="file" id="fi2" accept=".pdf,application/pdf,image/jpeg,image/jpg,image/png" multiple>
 
     <button class="btn" id="btn" disabled onclick="analisar()">
       Analisar meu contrato gratuitamente
@@ -350,23 +333,15 @@
   </div>
 
   <div class="garantias">
-    <div class="garantia">
-      <div class="garantia-icon">🆓</div>
-      <div class="garantia-txt">Totalmente gratuito</div>
-    </div>
-    <div class="garantia">
-      <div class="garantia-icon">⚡</div>
-      <div class="garantia-txt">Resultado em 30 segundos</div>
-    </div>
-    <div class="garantia">
-      <div class="garantia-icon">🔐</div>
-      <div class="garantia-txt">100% confidencial</div>
-    </div>
+    <div class="garantia"><div class="garantia-icon">🆓</div><div class="garantia-txt">Totalmente gratuito</div></div>
+    <div class="garantia"><div class="garantia-icon">⚡</div><div class="garantia-txt">Resultado em 30 segundos</div></div>
+    <div class="garantia"><div class="garantia-icon">🔐</div><div class="garantia-txt">100% confidencial</div></div>
   </div>
 </div>
 
 <footer>
-  © 2026 Nascimento Moura Advocacia · OAB/MT · nascimentomouraadv.com.br
+  <strong>Nascimento Moura Advogados Associados</strong><br>
+  OAB/MT · Sorriso · Nova Mutum · Cuiabá · nascimentomouraadv.com.br
 </footer>
 
 <script>
@@ -374,16 +349,73 @@
   const telefone = params.get('tel') || '';
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_x486rtYx_ImS1gqICrTzgVFdWiId4-vOLPHj-GC_bP8MDzrJgDQaNHobfgPbgo-K0Q/exec';
 
-  let arq = null;
+  let arquivos = [];
 
-  document.getElementById('fi').addEventListener('change', function(e) {
-    arq = e.target.files[0];
-    if (arq) {
-      document.getElementById('fn').textContent = '✓ ' + arq.name;
-      document.getElementById('drop').classList.add('ok');
-      document.getElementById('btn').disabled = false;
+  function formatBytes(b) {
+    if (b < 1024) return b + ' B';
+    if (b < 1048576) return (b/1024).toFixed(0) + ' KB';
+    return (b/1048576).toFixed(1) + ' MB';
+  }
+
+  function iconeArquivo(f) {
+    return f.type === 'application/pdf' ? '📄' : '🖼️';
+  }
+
+  function renderLista() {
+    const lista   = document.getElementById('lista');
+    const btnMais = document.getElementById('btnMais');
+    const drop    = document.getElementById('drop');
+    const btn     = document.getElementById('btn');
+
+    if (arquivos.length === 0) {
+      lista.style.display = 'none';
+      btnMais.style.display = 'none';
+      drop.style.display = 'block';
+      btn.disabled = true;
+      return;
     }
+
+    drop.style.display = 'none';
+    lista.style.display = 'flex';
+    btnMais.style.display = 'flex';
+    btn.disabled = false;
+
+    lista.innerHTML = arquivos.map((f, i) => `
+      <div class="arquivo-item">
+        <span class="arquivo-icon">${iconeArquivo(f)}</span>
+        <span class="arquivo-nome">${f.name}</span>
+        <span class="arquivo-size">${formatBytes(f.size)}</span>
+        <button class="arquivo-remove" onclick="removerArquivo(${i})" title="Remover">✕</button>
+      </div>
+    `).join('');
+  }
+
+  function removerArquivo(i) {
+    arquivos.splice(i, 1);
+    renderLista();
+  }
+
+  function adicionarArquivos(novos) {
+    for (const f of novos) {
+      if (f.size > 10 * 1024 * 1024) { alert('Arquivo "' + f.name + '" excede 10 MB.'); continue; }
+      if (!arquivos.find(x => x.name === f.name && x.size === f.size)) arquivos.push(f);
+    }
+    renderLista();
+  }
+
+  document.getElementById('drop').addEventListener('click', () => document.getElementById('fi').click());
+
+  const drop = document.getElementById('drop');
+  drop.addEventListener('dragover',  e => { e.preventDefault(); drop.classList.add('dragover'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
+  drop.addEventListener('drop', e => {
+    e.preventDefault();
+    drop.classList.remove('dragover');
+    adicionarArquivos(Array.from(e.dataTransfer.files));
   });
+
+  document.getElementById('fi').addEventListener('change',  e => { adicionarArquivos(Array.from(e.target.files)); e.target.value = ''; });
+  document.getElementById('fi2').addEventListener('change', e => { adicionarArquivos(Array.from(e.target.files)); e.target.value = ''; });
 
   function status(t, m) {
     const el = document.getElementById('msg');
@@ -391,29 +423,35 @@
     el.innerHTML = m;
   }
 
-  function analisar() {
-    if (!arq) return;
+  function lerArquivo(f) {
+    return new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload = e => res({ b64: e.target.result.split(',')[1], tipo: f.type, nome: f.name });
+      r.onerror = rej;
+      r.readAsDataURL(f);
+    });
+  }
+
+  async function analisar() {
+    if (arquivos.length === 0) return;
     document.getElementById('btn').disabled = true;
+    document.getElementById('btnMais').style.display = 'none';
     status('load', '<span class="spin"></span> Analisando seu contrato com IA...');
 
-    const r = new FileReader();
-    r.onload = function(e) {
-      const b64 = e.target.result.split(',')[1];
-      fetch(APPS_SCRIPT_URL, {
+    try {
+      const lidos = await Promise.all(arquivos.map(lerArquivo));
+      await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'analisar', base64Pdf: b64, nomeArquivo: arq.name, telefone: telefone })
-      })
-      .then(() => {
-        status('ok', '⚠️ <strong>Análise em andamento!</strong><br>Você receberá o resultado no WhatsApp em instantes.');
-      })
-      .catch(() => {
-        status('err', '❌ Erro ao enviar. Tente novamente.');
-        document.getElementById('btn').disabled = false;
+        body: JSON.stringify({ action: 'analisar', arquivos: lidos, telefone: telefone })
       });
-    };
-    r.readAsDataURL(arq);
+      status('ok', '⚠️ <strong>Análise em andamento!</strong><br>Você receberá o resultado no WhatsApp em instantes.');
+    } catch(e) {
+      status('err', '❌ Erro ao enviar. Tente novamente.');
+      document.getElementById('btn').disabled = false;
+      document.getElementById('btnMais').style.display = 'flex';
+    }
   }
 </script>
 
