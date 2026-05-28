@@ -35,13 +35,40 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);min-height:100vh;colo
 .step{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e5e0d8;border-radius:4px;padding:14px 16px}
 .step-num{width:28px;height:28px;background:var(--navy);color:var(--creme);border-radius:2px;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .step-txt{font-size:13px;color:#374151;font-weight:500}
-.card{background:#fff;border:1px solid #e5e0d8;border-radius:4px;padding:32px 24px;box-shadow:0 4px 32px rgba(30,42,58,.07);text-align:center}
-.card-icon{font-size:48px;margin-bottom:16px}
-.card-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--navy);font-weight:600;margin-bottom:8px}
-.card-sub{font-size:13px;color:var(--cinza);margin-bottom:28px;line-height:1.6}
-.btn-cta{display:block;width:100%;padding:18px;background:var(--navy);color:var(--creme);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:.2s;letter-spacing:.5px;text-transform:uppercase;text-decoration:none}
-.btn-cta:hover{background:var(--navy-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,42,58,.25)}
-.legal{margin-top:14px;font-size:11px;color:#9ca3af;line-height:1.5}
+
+/* ── FORM CARD ── */
+.card{background:#fff;border:1px solid #e5e0d8;border-radius:4px;padding:32px 24px;box-shadow:0 4px 32px rgba(30,42,58,.07)}
+.card-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--navy);font-weight:600;margin-bottom:6px}
+.card-sub{font-size:13px;color:var(--cinza);margin-bottom:24px;line-height:1.6}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--navy);letter-spacing:.7px;text-transform:uppercase;margin-bottom:6px}
+.field input{width:100%;padding:12px 14px;border:1.5px solid #d5cfc4;background:#faf9f6;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--navy);outline:none;border-radius:2px;transition:border-color .2s}
+.field input:focus{border-color:var(--ouro);background:#fff}
+.field input::placeholder{color:#a8a29e}
+.drop-label{display:block;font-size:11px;font-weight:600;color:var(--navy);letter-spacing:.7px;text-transform:uppercase;margin-bottom:6px}
+.drop-zone{border:2px dashed #d5cfc4;background:#faf9f6;padding:28px 16px;text-align:center;cursor:pointer;transition:all .2s;position:relative;border-radius:2px;margin-bottom:16px}
+.drop-zone.drag-over{border-color:var(--ouro);background:rgba(201,168,76,.06)}
+.drop-zone.has-file{border-color:#16a34a;border-style:solid;background:#f0fdf4}
+.drop-icon{font-size:32px;display:block;margin-bottom:8px;transition:transform .2s}
+.drop-zone:hover .drop-icon,.drop-zone.drag-over .drop-icon{transform:translateY(-2px)}
+.drop-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.drop-sub{font-size:12px;color:var(--cinza);line-height:1.6}
+.drop-sub strong{color:var(--navy)}
+.drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.file-info{display:none;align-items:center;gap:10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:2px;padding:10px 14px;margin-bottom:16px}
+.file-info.visible{display:flex}
+.file-nome{font-size:13px;color:#15803d;font-weight:500;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-remover{font-size:11px;color:#dc2626;cursor:pointer;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border:1px solid #fca5a5;background:#fff5f5;border-radius:2px;flex-shrink:0}
+.btn-cta{display:block;width:100%;padding:16px;background:var(--navy);color:var(--creme);border:none;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:.2s;letter-spacing:.5px;text-transform:uppercase}
+.btn-cta:hover:not(:disabled){background:var(--navy-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,42,58,.25)}
+.btn-cta:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(240,235,224,.3);border-top-color:var(--creme);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.msg{display:none;padding:14px;margin-top:14px;font-size:13px;line-height:1.6;border-radius:2px}
+.msg.sucesso{display:block;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d}
+.msg.erro{display:block;background:#fef2f2;border:1px solid #fecaca;color:#dc2626}
+.msg strong{display:block;font-size:14px;margin-bottom:3px}
+.legal{margin-top:12px;font-size:11px;color:#9ca3af;line-height:1.5;text-align:center}
 .garantias{display:flex;gap:10px;margin-top:24px}
 .garantia{flex:1;background:#fff;border:1px solid #e5e0d8;border-radius:4px;padding:16px 10px;text-align:center}
 .garantia-icon{font-size:22px;margin-bottom:6px}
@@ -84,17 +111,52 @@ footer strong{color:var(--navy)}
     <p class="section-sub">Em menos de 1 minuto você descobre se o banco cobrou mais do que a lei permite.</p>
   </div>
   <div class="steps">
-    <div class="step"><div class="step-num">1</div><div class="step-txt">Clique em "Iniciar análise" e envie o PDF do seu contrato</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-txt">Nossa IA compara sua taxa com a média oficial do BACEN</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-txt">Resultado completo chega no seu WhatsApp em 30 segundos</div></div>
+    <div class="step"><div class="step-num">1</div><div class="step-txt">Preencha nome e WhatsApp para receber o resultado</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-txt">Envie o PDF ou foto do seu contrato de crédito</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-txt">Nossa IA compara sua taxa com a média oficial do BACEN</div></div>
   </div>
+
   <div class="card">
-    <div class="card-icon">📋</div>
-    <div class="card-titulo">Pronto para analisar seu contrato?</div>
-    <div class="card-sub">Clique abaixo, envie o documento e receba a análise completa no WhatsApp em instantes.</div>
-    <a id="btnAnalise" class="btn-cta" href="#">Iniciar análise gratuita →</a>
+    <div class="card-titulo">Analisar meu contrato agora</div>
+    <p class="card-sub">Gratuito, sem compromisso. Resultado em 30 segundos no WhatsApp.</p>
+
+    <div class="field">
+      <label>Seu nome</label>
+      <input type="text" id="nome" placeholder="Ex: João da Silva" autocomplete="name">
+    </div>
+    <div class="field">
+      <label>WhatsApp (com DDD)</label>
+      <input type="tel" id="telefone" placeholder="Ex: 66 99999-9999" autocomplete="tel">
+    </div>
+
+    <span class="drop-label">Contrato (PDF ou imagem)</span>
+    <div class="drop-zone" id="dropZone">
+      <span class="drop-icon">📄</span>
+      <div class="drop-title">Arraste o arquivo aqui</div>
+      <div class="drop-sub">ou clique para selecionar<br><strong>PDF, JPG, PNG</strong> — até 10 MB</div>
+      <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,image/*,application/pdf">
+    </div>
+
+    <div class="file-info" id="fileInfo">
+      <span>✅</span>
+      <span class="file-nome" id="fileNome"></span>
+      <span class="file-remover" id="fileRemover">Remover</span>
+    </div>
+
+    <button class="btn-cta" id="btnEnviar" onclick="enviar()">Enviar para análise →</button>
+
+    <div class="msg" id="msgSucesso">
+      <strong>🎉 Contrato enviado com sucesso!</strong>
+      Em instantes você receberá o resultado completo no WhatsApp.
+    </div>
+    <div class="msg" id="msgErro">
+      <strong>⚠️ <span id="msgErroTexto">Algo deu errado.</span></strong>
+      Tente novamente ou entre em contato via WhatsApp.
+    </div>
+
     <p class="legal">🔒 Seus dados são protegidos e usados apenas para a análise jurídica.</p>
   </div>
+
   <div class="garantias">
     <div class="garantia"><div class="garantia-icon">🆓</div><div class="garantia-txt">Totalmente gratuito</div></div>
     <div class="garantia"><div class="garantia-icon">⚡</div><div class="garantia-txt">Resultado em 30 segundos</div></div>
@@ -102,10 +164,83 @@ footer strong{color:var(--navy)}
   </div>
 </div>
 <footer><strong>Nascimento Moura Advogados Associados</strong><br>OAB/MT · Sorriso · Nova Mutum · Cuiabá · nascimentomouraadv.com.br</footer>
+
 <script>
-  const tel = new URLSearchParams(window.location.search).get('tel') || '';
-  const APPS_URL = 'https://script.google.com/macros/s/AKfycbw_x486rtYx_ImS1gqICrTzgVFdWiId4-vOLPHj-GC_bP8MDzrJgDQaNHobfgPbgo-K0Q/exec';
-  document.getElementById('btnAnalise').href = APPS_URL + (tel ? '?tel=' + tel : '');
+let arquivoSelecionado = null;
+const dz = document.getElementById('dropZone');
+const fi = document.getElementById('fileInput');
+
+dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag-over'); });
+dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
+dz.addEventListener('drop', e => {
+  e.preventDefault(); dz.classList.remove('drag-over');
+  if (e.dataTransfer.files[0]) setArquivo(e.dataTransfer.files[0]);
+});
+fi.addEventListener('change', () => { if (fi.files[0]) setArquivo(fi.files[0]); });
+document.getElementById('fileRemover').addEventListener('click', () => {
+  arquivoSelecionado = null; fi.value = '';
+  dz.classList.remove('has-file');
+  document.getElementById('fileInfo').classList.remove('visible');
+});
+
+function setArquivo(file) {
+  if (file.size > 10 * 1024 * 1024) { alert('Arquivo muito grande. Máximo 10 MB.'); return; }
+  arquivoSelecionado = file;
+  dz.classList.add('has-file');
+  document.getElementById('fileNome').textContent = file.name + ' (' + (file.size / 1024).toFixed(0) + ' KB)';
+  document.getElementById('fileInfo').classList.add('visible');
+}
+
+document.getElementById('telefone').addEventListener('input', function() {
+  let v = this.value.replace(/\D/g, '').slice(0, 11);
+  if (v.length > 10) v = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+  else if (v.length > 6) v = v.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
+  else if (v.length > 2) v = v.replace(/(\d{2})(\d+)/, '($1) $2');
+  this.value = v;
+});
+
+async function enviar() {
+  const nome = document.getElementById('nome').value.trim();
+  const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
+  document.getElementById('msgSucesso').className = 'msg';
+  document.getElementById('msgErro').className = 'msg';
+  if (!nome) { alert('Por favor, informe seu nome.'); return; }
+  if (telefone.length < 10) { alert('Por favor, informe um telefone válido com DDD.'); return; }
+  if (!arquivoSelecionado) { alert('Por favor, selecione o arquivo do contrato.'); return; }
+  const btn = document.getElementById('btnEnviar');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Analisando contrato...';
+  try {
+    const b64 = await toBase64(arquivoSelecionado);
+    const resp = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ telefone, nome, arquivos: [{ nome: arquivoSelecionado.name, b64 }] })
+    });
+    const data = await resp.json();
+    if (data.sucesso !== false) {
+      document.getElementById('msgSucesso').className = 'msg sucesso';
+      btn.innerHTML = '✓ Enviado com sucesso';
+    } else {
+      document.getElementById('msgErroTexto').textContent = data.erro || 'Erro desconhecido.';
+      document.getElementById('msgErro').className = 'msg erro';
+      btn.disabled = false; btn.innerHTML = 'Tentar novamente →';
+    }
+  } catch(err) {
+    document.getElementById('msgErroTexto').textContent = 'Falha na conexão. Verifique sua internet.';
+    document.getElementById('msgErro').className = 'msg erro';
+    btn.disabled = false; btn.innerHTML = 'Tentar novamente →';
+  }
+}
+
+function toBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result.split(',')[1]);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
 </script>
 </body>
 </html>
