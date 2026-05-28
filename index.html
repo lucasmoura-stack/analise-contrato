@@ -155,7 +155,7 @@
 <script>
   const params   = new URLSearchParams(window.location.search);
   const telefone = params.get('tel') || '';
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_x486rtYx_ImS1gqICrTzgVFdWiId4-vOLPHj-GC_bP8MDzrJgDQaNHobfgPbgo-K0Q/exec';
+  const APPS_SCRIPT_URL = 'https://revisao-proxy.lucas-moura-2d2.workers.dev';
 
   // Monta o link com o telefone e aplica no botão
   const destino = APPS_SCRIPT_URL + (telefone ? '?tel=' + telefone : '');
